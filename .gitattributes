@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.woff2 -text
+*.svg text eol=lf
+tests/fixtures/scan/**/.codex/skills/sample/** -text whitespace=cr-at-eol

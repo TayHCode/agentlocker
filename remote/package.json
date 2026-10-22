@@ -1,0 +1,25 @@
+{
+  "name": "agentlocker-remote",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only remote MCP catalog for agentlocker",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "1.2.3",
+    "jose": "6.2.13"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.4.6",
+    "@cloudflare/workers-types": "5.20261019.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5",
+    "wrangler": "4.151.3"
+  },
+  "license": "MIT"
+}

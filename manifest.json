@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "name": "agentlocker",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "evidence-before-done",
+      "path": "skills/evidence-before-done",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-02064ac6a696",
+        "origin": "authored"
+      },
+      "sha256": "02064ac6a6961e2014a472735938d384535d9b92dd458103a9c69c1effb36a9a"
+    },
+    {
+      "name": "hub-discover",
+      "path": "skills/hub-discover",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-5e8605303eae",
+        "origin": "authored"
+      },
+      "sha256": "5e8605303eaefb1f74e680124e5c5a4d00035e5b8f9954ba7b8341eb61f5afc0"
+    },
+    {
+      "name": "minimal-diff-review",
+      "path": "skills/minimal-diff-review",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-3c812bf8c03f",
+        "origin": "authored"
+      },
+      "sha256": "3c812bf8c03f52472c41c35442035ff41e366ec7fd7d7fd7d015369d1cf33bf6"
+    }
+  ],
+  "rules": [
+    {
+      "name": "shared-policy",
+      "path": "rules/shared-policy.md",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-668d16e87849",
+        "origin": "authored"
+      },
+      "sha256": "668d16e87849444c51c6a0407f40b8802ddea19769cfb9b07d6809b28b6f9d4c"
+    }
+  ],
+  "mcp_servers": [
+    {
+      "name": "example-server",
+      "path": "mcp/servers/example-server.json",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-7d7812452add",
+        "origin": "authored"
+      },
+      "sha256": "7d7812452addda207d3eac6f7de441972077e94f323d43d33c2ea39b1a694cbc"
+    }
+  ],
+  "routines": [
+    {
+      "id": "inventory-digest",
+      "path": "routines/inventory-digest/routine.json",
+      "owner": "agentlocker",
+      "provenance": {
+        "source_id": "src-ef5d563256ed",
+        "origin": "authored"
+      },
+      "sha256": "ef5d563256edb59073ba67986d90a5b538e26704dd481862b8388a06a9f5863a"
+    }
+  ],
+  "plugins": [],
+  "connections": []
+}

@@ -1,0 +1,108 @@
+{
+  "exclude": [],
+  "approvals": [],
+  "quickstart": [
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 15,
+      "argv": [
+        "python3",
+        "-m",
+        "pip",
+        "install",
+        "pillow==13.0.0",
+        "tzdata==2026.5"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 16,
+      "argv": [
+        "python3",
+        "hub.py",
+        "doctor"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 17,
+      "argv": [
+        "python3",
+        "hub.py",
+        "list"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 39,
+      "argv": [
+        "npm",
+        "--prefix",
+        "remote",
+        "ci"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "line": 54,
+      "argv": [
+        "npm",
+        "--prefix",
+        "gateway",
+        "ci",
+        "--ignore-scripts"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "role": "tests",
+      "argv": [
+        "python3",
+        ".github/ci.py",
+        "tests"
+      ]
+    },
+    {
+      "role": "build",
+      "argv": [
+        "python3",
+        "examples/test-servers/local_catalog_proof.py"
+      ]
+    },
+    {
+      "role": "build",
+      "argv": [
+        "python3",
+        "hub.py",
+        "check"
+      ]
+    },
+    {
+      "role": "types",
+      "argv": [
+        "npm",
+        "--prefix",
+        "remote",
+        "run",
+        "typecheck"
+      ]
+    },
+    {
+      "role": "tests",
+      "argv": [
+        "npm",
+        "--prefix",
+        "remote",
+        "test"
+      ]
+    }
+  ],
+  "verify_tools": [
+    "node",
+    "npm",
+    "git",
+    "bash"
+  ],
+  "dependency_licenses": {}
+}
