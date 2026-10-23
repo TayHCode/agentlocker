@@ -13,8 +13,10 @@ Download the ZIP or tar archive from [agentlocker.dev](https://agentlocker.dev/#
 and extract it into a permanent directory. Run `python3 hub.py doctor` and
 `python3 hub.py serve` there, then open the printed local address for setup.
 The archive includes the application and setup wizard, with no Git history,
-private deployment configuration or imported library. Python 3.11+ and Git are
-required; on Windows use Python 3.12.4+ and replace `python3` with `py -3`.
+private deployment configuration or imported library. Python 3.11+ is required;
+Git is optional for archives. On Windows use Python 3.12.4+ and replace
+`python3` with `py -3` or `python`. The [Windows quickstart](../README.md#quickstart)
+includes source download and extraction commands that need no Git or winget.
 
 ## Development checkout
 

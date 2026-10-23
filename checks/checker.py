@@ -89,8 +89,14 @@ def check_installation_state(root):
         settings = json.loads((root / "config.json").read_text(encoding="utf-8"))
         require(isinstance(settings, dict), "invalid installation configuration")
     FileStore(root)
-    top = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=root,
-                         capture_output=True, text=True, encoding="utf-8")
+    if not (root / ".git").exists():
+        print("INFO: archive install; Git is optional and tracking checks do not apply")
+        return
+    try:
+        top = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=root,
+                             capture_output=True, text=True, encoding="utf-8")
+    except FileNotFoundError:
+        raise ValueError("Git is required to check this checkout; install Git and rerun doctor") from None
     if top.returncode == 0 and Path(top.stdout.strip()).resolve() == root.resolve():
         check_ignored(root)
 
