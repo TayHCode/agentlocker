@@ -50,6 +50,23 @@ class DoctorTests(HubCase):
         self.assertNotIn(secret, output)
         self.assertEqual(private.read_text(), secret)
 
+    def test_archive_without_git_installed_is_healthy(self):
+        self.environment["PATH"] = str(self.base / "empty-bin")
+        output = self.cli("doctor")
+        self.assertEqual(output.count("PASS:"), 5)
+        self.assertIn("Git is optional", output)
+
+    def test_archive_without_git_still_checks_content(self):
+        self.environment["PATH"] = str(self.base / "empty-bin")
+        (self.local / "skills/sample/nested/data.txt").write_text("changed\n")
+        self.assertIn("FAIL: manifest content hashes", self.cli("doctor", code=1))
+
+    def test_git_checkout_without_git_reports_missing_dependency(self):
+        self.git("init", "-q")
+        self.environment["PATH"] = str(self.base / "empty-bin")
+        output = self.cli("doctor", code=1)
+        self.assertIn("Git is required to check this checkout", output)
+
     def test_doctor_does_not_scan_unrelated_source_or_dependencies(self):
         path = self.root / "remote/node_modules/fixture/metadata.txt"
         path.parent.mkdir(parents=True)
