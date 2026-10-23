@@ -20,24 +20,24 @@ Use a permanent source directory and Python 3.11+ (Windows: Python 3.12.4+;
 use `py -3` instead of `python3`). Get the approved source using the
 [install instructions](docs/install.md).
 
-On a stock Windows x64 machine, install Python 3.12.4 or newer from
-[Python for Windows](https://www.python.org/downloads/windows/). In the installer,
-enable **Add python.exe to PATH**, then open a new PowerShell window. Download
+On a stock Windows x64 machine, install Python 3.12.4 or newer, including the
+`py` launcher, from [Python for Windows](https://www.python.org/downloads/windows/).
+Open a new PowerShell window. Download
 and extract the source into a new permanent directory:
 
 ```powershell
-python --version
-Invoke-WebRequest https://github.com/TayHCode/agentlocker/archive/refs/heads/main.zip -OutFile agentlocker.zip
+py -3 --version
+Invoke-WebRequest -UseBasicParsing https://github.com/TayHCode/agentlocker/archive/refs/heads/main.zip -OutFile agentlocker.zip
 Expand-Archive agentlocker.zip -DestinationPath agentlocker-source
 Set-Location agentlocker-source\agentlocker-main
-python hub.py doctor
-python hub.py serve
+py -3 hub.py doctor
+py -3 hub.py serve
 ```
 
 `doctor` must exit successfully before setup. An archive install prints that Git
 is optional and still checks the catalog and private installation state. These
 commands do not require Git, winget, or a PowerShell execution-policy change.
-Use `python` in place of `python3` in the commands below.
+Use `py -3` in place of `python3` in the commands below.
 
 For the guided scan → import → connect interface, run `python3 hub.py serve`
 and open the local URL printed in your terminal. The CLI steps follow below.
