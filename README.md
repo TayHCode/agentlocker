@@ -2,7 +2,8 @@
 
 One place to share skills and routine instructions across your AI agents. Scan what
 your agents already have, import it into a private local catalog, and connect each
-agent to that catalog over MCP. Setup needs Python and Git; no Python packages to install.
+agent to that catalog over MCP. Setup needs Python; Git is optional for archive
+installs. No Python packages to install.
 MIT licensed; see [LICENSE](LICENSE).
 
 Release status: self-hosted source preview. [Download it](https://agentlocker.dev/#download)
@@ -18,6 +19,25 @@ To share the library with hosted bots as well as local agents, follow the
 Use a permanent source directory and Python 3.11+ (Windows: Python 3.12.4+;
 use `py -3` instead of `python3`). Get the approved source using the
 [install instructions](docs/install.md).
+
+On a stock Windows x64 machine, install Python 3.12.4 or newer, including the
+`py` launcher, from [Python for Windows](https://www.python.org/downloads/windows/).
+Open a new PowerShell window. Download
+and extract the source into a new permanent directory:
+
+```powershell
+py -3 --version
+Invoke-WebRequest -UseBasicParsing https://github.com/TayHCode/agentlocker/archive/refs/heads/main.zip -OutFile agentlocker.zip
+Expand-Archive agentlocker.zip -DestinationPath agentlocker-source
+Set-Location agentlocker-source\agentlocker-main
+py -3 hub.py doctor
+py -3 hub.py serve
+```
+
+`doctor` must exit successfully before setup. An archive install prints that Git
+is optional and still checks the catalog and private installation state. These
+commands do not require Git, winget, or a PowerShell execution-policy change.
+Use `py -3` in place of `python3` in the commands below.
 
 For the guided scan → import → connect interface, run `python3 hub.py serve`
 and open the local URL printed in your terminal. The CLI steps follow below.

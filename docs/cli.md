@@ -1,6 +1,6 @@
 # agentlocker CLI
 
-Run `python3 hub.py` from the repository root. Python 3.10+ and the standard library are enough; verification also uses Git. Every command takes `--help`. Exit codes: 0 success, 1 rejected input or failed checks, 2 invalid syntax.
+Run `python3 hub.py` from the repository root. Python 3.10+ and the standard library are enough; maintainer verification also uses Git. Every command takes `--help`. Exit codes: 0 success, 1 rejected input or failed checks, 2 invalid syntax.
 
 Commands: `scan`, `connect`, `connect-composio`, `list`, `remove`, `import-skill`, `import-rule`, `import-mcp`, `import-routine`, `import-plugin`, `import-connection`, `import-executor`, `link`, `routine`, `publish-remote`, `agents-import`, `agents-export`, `agents-sync`, `serve`, `check`.
 
@@ -146,7 +146,8 @@ python3 hub.py routine enable ID --runner RUNNER --remote
 
 For an installed catalog, use `python3 hub.py doctor`. It checks schema, MIT
 license, catalog hashes, private-state layout and catalog privacy, including
-routine prompts. It works from a source snapshot without Git metadata and
+routine prompts. It works from a source snapshot without Git installed, reports
+that Git tracking checks do not apply to archives, and
 does not enforce maintainer commit identities or scan unrelated source and
 dependency files. It does not establish hosted connectivity or routine execution.
 In a Git installation it still refuses tracked or unignored private state.

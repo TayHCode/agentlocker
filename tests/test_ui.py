@@ -168,7 +168,7 @@ class UITests(unittest.TestCase):
     def test_source_archive_status_passes_without_git_or_maintainer_policy(self):
         shutil.rmtree(self.root / '.git')
         (self.root / 'config/commit-email-allowlist.txt').unlink(missing_ok=True)
-        with patch.dict(os.environ, {'GIT_CEILING_DIRECTORIES': str(self.root.parent)}):
+        with patch.dict(os.environ, {'GIT_CEILING_DIRECTORIES': str(self.root.parent), 'PATH': ''}):
             with contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(hub_ui.checker.doctor(self.root), 0)
                 self.assertNotEqual(hub_ui.checker.run(self.root), 0)
